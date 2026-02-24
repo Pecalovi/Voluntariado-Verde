@@ -19,7 +19,6 @@
     border-left: 6px solid #358C0A;
     padding: 2rem 3rem;
     max-width: 1000px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
     border-radius: 12px;
     text-align: justify;
 }
@@ -81,6 +80,7 @@
 
 .tarjeta-mision {
     background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    border: solid 3px #2e7d32;
 }
 
 .tarjeta-mision h3 {
@@ -94,6 +94,7 @@
 /* Tarjeta Visión - Azul */
 .tarjeta-vision {
     background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    border: solid 3px #0d47a1;
 }
 
 .tarjeta-vision h3 {
@@ -107,6 +108,7 @@
 /* Tarjeta Valores - Naranja */
 .tarjeta-valores {
     background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+    border: solid 3px #e65100;
 }
 
 .tarjeta-valores h3 {
@@ -219,18 +221,18 @@
 }
 
 .ods-8:hover img {
-    box-shadow: 0 20px 35px rgba(132, 0, 56, 0.45);
+    box-shadow: rgba(132, 0, 56, 0.45) 0px 10px 29px 10px;
 }
 
 .ods-10:hover img {
-    box-shadow: 0 20px 35px rgba(240, 5, 232, 0.45);
+    box-shadow: rgba(240, 5, 232, 0.45) 0px 10px 29px 10px;
 }
 
 .ods-11:hover img {
-    box-shadow: 0 20px 35px rgba(255, 140, 10, 0.45);
+    box-shadow: rgba(255, 140, 10, 0.45) 0px 10px 29px 10px;
 }
 .ods-13:hover img {
-    box-shadow: 0 20px 35px rgba(53, 140, 10, 0.45);
+    box-shadow: rgba(53, 140, 10, 0.45) 0px 10px 29px 10px;
 }
 strong{
     color: #2e7d32;
