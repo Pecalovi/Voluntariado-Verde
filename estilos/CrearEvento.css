@@ -208,3 +208,43 @@ form textarea {
     cursor: pointer;
     transition: background-color 0.3s;
 }
+
+#wizard-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    min-height: 1400px; /* ajusta según tus formularios */
+}
+
+.steps-container {
+    position: relative; /* para que los .step se posicionen dentro */
+    width: 100%;
+    min-height: 600px; /* o ajusta según tu contenido */
+}
+
+.step {
+    position: absolute;
+    top: 0;
+    left: 100%; /* empieza fuera de pantalla a la derecha */
+    width: 100%;
+    transition: left 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    opacity: 0;
+}
+
+.step.active {
+    left: 0;
+    opacity: 1;
+}
+
+.step.prev-slide {
+    left: -100%; /* se desliza hacia la izquierda al retroceder */
+    opacity: 0;
+}
+
+.indicador-pasos {
+    position: sticky;  /* queda pegado */
+    top: 0;            /* se pega al top del contenedor */
+    background: #fff;  /* fondo para que no se vea el contenido detrás */
+    z-index: 10;       /* que quede encima de los formularios */
+    padding-top: 20px;
+}
