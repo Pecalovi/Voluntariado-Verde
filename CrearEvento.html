@@ -81,18 +81,26 @@
             <h1>Datos del evento</h1>
             <p>Completa la información básica para crear tu evento.</p>
         </div>
-        
+
         <form>
 
             <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
             <input type="date" id="fecha" name="fecha" placeholder="Fecha" required>
             <select id="tipoEvento" name="tipoEvento" required>
                 <option value="" disabled selected>Selecciona el tipo de evento</option>
-                <option value="motocros">Motocross</option>
-                <option value="maraton">Maratón</option>
-                <option value="ciclismo">Ciclismo</option>
-                <option value="senderismo">Senderismo / Trail</option>
-                <option value="otro">Otro</option>
+                <optgroup label="Estáticos">
+                    <option value="concierto">Concierto</option>
+                    <option value="festival">Festival</option>
+                    <option value="feria">Feria</option>
+                    <option value="evento_benefico">Evento benéfico</option>
+                </optgroup>
+            
+                <optgroup label="Dinámicos">
+                    <option value="maraton">Maratón</option>
+                    <option value="carrera">Carrera popular</option>
+                    <option value="ciclismo">Ciclismo</option>
+                    <option value="trail">Trail / Senderismo</option>
+                </optgroup>
             </select>
             <input type="number" id="numeroVoluntarios" name="numeroVoluntarios" placeholder="Voluntarios" min="1"
                 step="1" required>

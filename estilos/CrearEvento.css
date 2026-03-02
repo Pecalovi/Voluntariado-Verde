@@ -1,23 +1,28 @@
+/* ===========================
+   MAIN
+=========================== */
 main {
-    padding-bottom: 100px;
     margin-inline: 10px;
+    padding-bottom: 100px;
 }
 
 /* ===========================
    INDICADOR DE PASOS
-   =========================== */
+=========================== */
 .indicador-pasos {
     display: flex;
     justify-content: center;
     gap: 40px;
-    margin: 50px 0;
+    margin: 30px 0;
+    padding-top: 20px;
+    background: #fff;
 }
 
 .paso {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: #aaaaaa;
+    color: #aaa;
 }
 
 .paso span {
@@ -39,33 +44,26 @@ main {
     max-width: 80px;
 }
 
-/* ===========================
-   ESTADOS DE LOS PASOS
-   =========================== */
-
-/* color del paso actual */
+/* Estados */
 .paso.activo span {
     background: #7e7e7e;
     border-color: #7e7e7e;
     color: #fff;
 }
 
-/* color del paso completado */
 .paso.completado span {
     background: #0070c0;
     border-color: #0070c0;
     color: #fff;
 }
 
-/* texto del paso completado */
 .paso.completado p {
     color: #0070c0;
 }
 
 /* ===========================
-   ENCABEZADO DEL FORMULARIO
-   =========================== */
-
+   ENCABEZADO
+=========================== */
 .enuncidado {
     text-align: center;
     margin-bottom: 60px;
@@ -85,27 +83,23 @@ main {
 
 /* ===========================
    FORMULARIO
-   =========================== */
-
+=========================== */
 form {
     max-width: 600px;
     width: 90%;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    margin: 0 auto;
 }
 
-form input[type="text"],
-form input[type="date"],
-form input[type="number"],
+form input,
 form select,
 form textarea {
     width: 100%;
     padding: 12px 15px;
+    font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 6px;
-    font-size: 1rem;
     transition: border 0.3s;
 }
 
@@ -127,39 +121,69 @@ form textarea {
 }
 
 /* ===========================
+   STEPS (ANIMACIÓN)
+=========================== */
+.steps-container {
+    position: relative;
+    width: 35%;
+    min-width: 400px;
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto; 
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: left 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    gap: 15px;
+}
+
+.step.active {
+    left: 0;
+    opacity: 1;
+}
+
+.step.prev-slide {
+    left: -100%;
+    opacity: 0;
+}
+
+/* ===========================
    PUNTOS INTERMEDIOS
-   =========================== */
+=========================== */
 .puntos-container {
     margin-bottom: 20px;
 }
 
 .punto-item {
-    background-color: #f4f8fc;
-    border: 1px solid #c0d9ee;
-    border-radius: 16px;
-    padding: 20px;
-    margin-top: 16px;
     position: relative;
+    margin-top: 16px;
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid #c0d9ee;
+    background-color: #f4f8fc;
 }
 
-/* Para el select y km en la misma fila */
 .punto-item .form-row {
     display: flex;
     gap: 16px;
     margin-bottom: 12px;
 }
 
-.punto-item .form-row .form-group.tipo {
-    flex: 7; /* 70% */
+.punto-item .form-group.tipo {
+    flex: 7;
 }
 
-.punto-item .form-row .form-group.km {
-    flex: 3; /* 30% */
-}
-
-/* Nombre debajo */
-.punto-item .form-group.nombre {
-    margin-top: 12px;
+.punto-item .form-group.km {
+    flex: 3;
 }
 
 /* Botón eliminar */
@@ -167,12 +191,12 @@ form textarea {
     position: absolute;
     top: 12px;
     right: 12px;
-    background-color: #dc3545;
-    color: #fff;
-    border: none;
     width: 20px;
     height: 20px;
+    border: none;
     border-radius: 50%;
+    background-color: #dc3545;
+    color: #fff;
     font-size: 1.2rem;
     cursor: pointer;
     display: flex;
@@ -187,64 +211,25 @@ form textarea {
 
 /* Mensaje vacío */
 .empty-message {
-    text-align: center;
-    color: #6faedc;
-    font-style: italic;
+    margin-bottom: 16px;
     padding: 20px;
+    text-align: center;
+    font-style: italic;
+    color: #6faedc;
     border: 2px dashed #c0d9ee;
     border-radius: 16px;
-    margin-bottom: 16px;
 }
 
+/* Botón agregar */
 .btn-agregar {
-    background-color: rgb(255, 255, 255);
-    color: var(--verde-principal);
-    border: 2px solid var(--verde-principal);
-    padding: 10px 20px;
     margin-block: 10px;
-    border-radius: 50px;
+    padding: 10px 20px;
     font-size: 0.9rem;
     font-weight: 600;
+    border-radius: 50px;
+    border: 2px solid var(--verde-principal);
+    background-color: #fff;
+    color: var(--verde-principal);
     cursor: pointer;
     transition: background-color 0.3s;
-}
-
-#wizard-container {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    min-height: 1400px; /* ajusta según tus formularios */
-}
-
-.steps-container {
-    position: relative; /* para que los .step se posicionen dentro */
-    width: 100%;
-    min-height: 600px; /* o ajusta según tu contenido */
-}
-
-.step {
-    position: absolute;
-    top: 0;
-    left: 100%; /* empieza fuera de pantalla a la derecha */
-    width: 100%;
-    transition: left 0.5s ease-in-out, opacity 0.5s ease-in-out;
-    opacity: 0;
-}
-
-.step.active {
-    left: 0;
-    opacity: 1;
-}
-
-.step.prev-slide {
-    left: -100%; /* se desliza hacia la izquierda al retroceder */
-    opacity: 0;
-}
-
-.indicador-pasos {
-    position: sticky;  /* queda pegado */
-    top: 0;            /* se pega al top del contenedor */
-    background: #fff;  /* fondo para que no se vea el contenido detrás */
-    z-index: 10;       /* que quede encima de los formularios */
-    padding-top: 20px;
 }
